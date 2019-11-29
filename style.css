@@ -229,7 +229,6 @@ button:hover {
 
 .calcinput:focus {
     outline: none;
-    box-shadow:1px 1px 8px 4px #888888;
 }
 
 .calclabel {
