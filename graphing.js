@@ -39,7 +39,7 @@ let layout = {
     yaxis: {
         title: {text: '% Loss Awarded'}
     },
-    legend: {borderwidth: 0, orientation: 'h', y = -.2}
+    legend: {borderwidth: 0, orientation: 'h', y: -.2}
 }
 
 data = [trace, trace2];
