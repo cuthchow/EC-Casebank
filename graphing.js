@@ -107,7 +107,7 @@ var layout2 = {
   barmode: "overlay", 
   title: {text: "Assessed %", font: {size: 25}}, 
   xaxis: {title: "Percentage"}, 
-  autosize: true, 
+  autosize: false, 
   legend: {orientation: 'h', y: -0.2}
 };
 Plotly.newPlot(graph1, data2, layout2);
