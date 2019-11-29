@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<table>
+
+</table>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBzNkFcyT-72cNJiQtEXpyOGXoSGpuesno",
+    authDomain: "ec-casebank.firebaseapp.com",
+    databaseURL: "https://ec-casebank.firebaseio.com",
+    projectId: "ec-casebank",
+    storageBucket: "ec-casebank.appspot.com",
+    messagingSenderId: "261401321656",
+    appId: "1:261401321656:web:251319cd4d1070a3e5544d",
+    measurementId: "G-JRDENWHVX9"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script>
+
+    const db = firebase.firestore();
+
+    const table = document.querySelector('table');
+
+    const addCase = (casedata, id) => {
+        let html = `
+        <tr>${casedata.citation}</tr>
+        `
+        table.innerHTML += html;
+    }
+
+    db.collection('casebank').get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            addCase(doc.data(), doc.id);
+            console.log(doc.data());
+        });
+    }).catch(err => {
+        console.log(err);
+    });
+
+
+    //WRITE ALL THE CASES TO FIREBASE FROM LOCAL JSON FILE 
+    // fetch('/cases.json').then((response) => {
+    //     return response.json()
+    // }).then(cases => {
+    //     cases.forEach(judgment => {
+    //         console.log(judgment['Case Citation'], judgment['Injury summary'])
+    //         const caseDetails = {
+    //             citation: judgment['Case Citation'],
+    //             age: judgment['Age at incident'],
+    //             percentage: judgment['% Loss of working/earning capacity'],
+    //             surgery: judgment['Any Surgery Undergone?'],
+    //             sentiment: judgment['Court Sentiment\n(Positive/Negative/Neutral)'],
+    //             summary: judgment['Injury summary'],
+    //             location: judgment['Location & Degree of Injury'],
+    //             sickleave: judgment['Injury summary'],
+    //             salary: judgment['Monthly salary (before injury)'],
+    //             date: judgment['Date of Assessment of Compensation/ Handing down judgment'],
+    //             occuption: judgment['Occupation during injury'],
+    //             casename: judgment['Name of Case']
+    //         }
+    //         console.log(judgment)
+    //         db.collection('casebank').add(caseDetails).then(()=>{
+    //         console.log('case added')})
+    //     });
+    // }).catch(err => {
+    //     console.log(err);
+    // })
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap');
+        </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src = 'https://cdn.plot.ly/plotly-latest.min.js'></script>
+</head>
+
+<body>
+
+<div id="shield" onclick = 'calculator()' style = 'display: none'></div>
+
+<div id="header">
+    <h2>EC CASEBANK</h2>
+    <button onclick="calculator()" id = 'calctoggle'>Calculator  <i class="fa fa-calculator" aria-hidden="true"></i></button>
+</div>
+
+<div id = 'calculator' style = "display: none">
+    Input your injury information to calculate your expected compensation:<br><br>
+    <div id="calcinputgroup">
+        <span class = 'calclabel'>Monthly Salary:</span><input type="text" class = 'calcinput'></input> $<br>
+        <span class="calclabel">Age: </span><input type="text" class = 'calcinput'></input> Years<br>
+        <span class="calclabel">Injury Percentage: </span><input type="text" class = 'calcinput'></input> %<br><br>
+        <button onclick="calculate()">Calculate</button>
+    </div>
+    
+    <h3 id = 'awardamount'></h3><br>
+</div>
+    
+
+<div id="search">
+    <h1>Search Casebase:</h1>
+    <input id="searchbar" type = 'text' onkeyup = "myFunction()" placeholder = "Search injury... ">
+
+    <div id="filter">
+        <span>Salary:</span>
+        <select id = 'salary' onChange = 'filtersalary()'>
+            <option value="0">All</option>
+            <option value="10000">$10,000-$20,000</option>
+            <option value="20000">$20,000-$30,000</option>
+            <option value="30000">$30,000-$40,000</option>
+            <option value="40000">$40,000-$50,000</option>
+        </select>
+        <span>Year:</span>
+        <select id = 'year' onChange = 'filteryear()'>
+            <option value="0">All</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+        </select>
+        <button onclick="highlight()">Sentiment</button>
+        <span>Occupation:</span>
+        <select id = 'salary' onChange = 'filter()'>
+            <option value="0">All</option>
+            <option value="10000">$10,000-$20,000</option>
+            <option value="20000">$20,000-$30,000</option>
+            <option value="30000">$30,000-$40,000</option>
+            <option value="40000">$40,000-$50,000</option>
+        </select>
+        <span>Age:</span>
+        <select id = 'year' onChange = 'filter()'>
+            <option value="0">All</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+    </div>
+        
+</div>
+<br>
+<hr>
+<br>
+<div id="results">
+    <table id='resultstable'>
+        <tr>
+            <th onclick = 'sort(0)'>Citation</th>
+            <th onclick = 'sort(1)'>% Loss of Earning Capacity</th>
+            <th>Injury Location</th>
+            <th onclick = 'sort(3)'>Age at Incident</th>
+            <th>Length of Sick Leave</th>
+            <th onclick = 'sort(5)'>Date of Assessment</th>
+            <th>Monthly Salary</th>
+            <th>Sentiment</th>
+        </tr>
+        
+    </table>
+</div>
+
+<img src = 'https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/0053540d59ee4824b70187bce47ef0e4/1551236725_Drawing-a-bar-graph-to-represent-the-data.png'>
+
+<div id="dashboard">    
+    <h1 id = 'dashtitle'>Summary Dashboard</h1><br>
+    <div class="graph" id="graph1"></div>
+    <div class="graph" id="graph2"></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBzNkFcyT-72cNJiQtEXpyOGXoSGpuesno",
+    authDomain: "ec-casebank.firebaseapp.com",
+    databaseURL: "https://ec-casebank.firebaseio.com",
+    projectId: "ec-casebank",
+    storageBucket: "ec-casebank.appspot.com",
+    messagingSenderId: "261401321656",
+    appId: "1:261401321656:web:251319cd4d1070a3e5544d",
+    measurementId: "G-JRDENWHVX9"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script src = 'app.js'></script>
+<script src = 'graphing.js'></script>
+
+</body>
