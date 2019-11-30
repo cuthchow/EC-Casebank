@@ -1,6 +1,6 @@
 
 const db = firebase.firestore();
-const table = document.querySelector('table');
+const table = document.querySelector('#resultstable');
 
 
 
@@ -138,7 +138,7 @@ function calculate(){
     }
     let percentage = Number(inputs[2].value)
     let output = document.getElementById('awardamount');
-    output.textContent = 'Projected Compensation: $' + String(salary * age * percentage/100).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    output.innerHTML = '<span>Projected Compensation:</span> $' + String(salary * age * percentage/100).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
 function sort(n){

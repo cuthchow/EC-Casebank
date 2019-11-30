@@ -164,7 +164,6 @@ button {
     text-transform: uppercase;
 
     transition-timing-function:cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
     background-image: linear-gradient(to right, #171717 50%, transparent 50%);
     background-position: 100% 0%;
     background-size: 200% 100%;
@@ -177,21 +176,22 @@ button:hover {
     border-radius: 5px;
     color: white;
     box-shadow: 3px 3px 6px rgba(0,0,0,0.25);
-
 }
 
 #calculator{
     font-family: 'Montserrat', sans-serif;
+    display: flex;
     position: fixed;
     z-index: 20;
-    margin-left: 25%;
-    width: 50%;
-    padding: 10px;
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 5px;
+    margin-left: 20%;
+    min-height: 600px;
+    width: 60%;
+    padding: 0px;
+    background-color: rgb(247, 247, 247);
+    border-radius: 10px;
     font-size: 22px;
     text-align: center;
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.25);
 }
 
 #calctoggle {
@@ -210,14 +210,54 @@ button:hover {
     height:105%;
 }
 
+#calcexplainer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: space-around;
+    border-radius: 10px 0px 0px 10px;
+    width: 35%;
+    background-color: blue;
+    padding: 30px;
+    position: relative;
+    background: rgb(186,50,196);
+    background: linear-gradient(132deg, rgba(186,50,196,1) 0%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+}
+
 #calcinputgroup {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    position: relative;
     background-color: white;
-    padding: 10px;
-    width: 76%;
-    margin-left: 12%;
-    border: 1px dotted grey;
-    border-radius: 5px;
+    padding: 50px;
+    width: 65%;
     text-align: left;
+}
+
+#calculatortable {
+    font-size: 24px;
+}
+
+#calcexplainer span {
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+#calcexplainer p {
+    text-align: left;
+}
+
+#calcinputgroup button {
+    width: 200px;
+    height: 60px;
+    font-size: 21px;
+}
+
+h3 span {
+    font-weight: 100;
 }
 
 .calcinput {
@@ -257,7 +297,7 @@ img {
 .graph {
     background-color: white;
     height: 550px;
-    width: 700px;
+    width: 800px;
 }
 
 #dashtitle {

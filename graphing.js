@@ -39,7 +39,7 @@ let layout = {
     yaxis: {
         title: {text: '% Loss Awarded'}
     },
-    legend: {borderwidth: 0, orientation: 'h', y: -.2}
+    legend: {borderwidth: 0, orientation: 'h'}
 }
 
 data = [trace, trace2];
@@ -107,7 +107,7 @@ var layout2 = {
   barmode: "overlay", 
   title: {text: "Assessed %", font: {size: 25}}, 
   xaxis: {title: "Percentage"}, 
-  autosize: false, 
+  autosize: true, 
   legend: {orientation: 'h', y: -0.2}
 };
 Plotly.newPlot(graph1, data2, layout2);
