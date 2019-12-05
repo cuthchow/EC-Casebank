@@ -19,23 +19,40 @@
 <div id = 'calculator' style = "display: none">
     <div id="calcexplainer">
         <span>CALCULATOR</span>
-        <p>This is the employee compensation calculator. The rule is that compensation is determined by the following formula:</p>
-        <p>Number of Sick Days * 4/5 * Percentage * Monthly Salary</p>
+        <p>This is the employee compensation calculator. Compensation is made up of three components</p>
+        <p><ol>
+            <li>Loss of Earning Capacity</li>
+            <li>Periodical Payments</li>
+            <li>Medical Fees</li>
+        </ol></p>
+        <p>Numbers provided by this calculator should be taken as rough estimates. </p>
         <p></p><p></p>
     </div>
     <div id="calcinputgroup">
         <br>
         <table id = 'calculatortable'>
             <tr>
-                <td>Monthly Salary:</td>
-                <td><input type="text" class = 'calcinput'></input></td>
+                <td>Monthly Salary (Pre-injury):</td>
+                <td><input type="text" class = 'calcinput'></input> $</td>
             </tr>
             <tr>
-                <td>Age: </td>
+                <td>Age </td>
                 <td><input type="text" class = 'calcinput'></input> Years</td>
             </tr>
             <tr>
-                <td>Injury Percentage: </td>
+                <td>Medical Leave </td>
+                <td><input type="text" class = 'calcinput'></input> Days</td>
+            </tr>
+            <tr>
+                <td>Monthly Salary during Incapacity </td>
+                <td><input type="text" class = 'calcinput'></input> $</td>
+            </tr>
+            <tr>
+                <td>Medical Fees (daily) </td>
+                <td><input type="text" class = 'calcinput'></input> $</td>
+            </tr>
+            <tr>
+                <td>% Proportionment: </td>
                 <td><input type="text" class = 'calcinput'></input> %</td>
             </tr>
         </table><br><br>
@@ -46,6 +63,10 @@
     
 </div>
     
+<div id="tooltip" style = 'display: none'>
+    Click on the sentiment button to highlight the cases based on the judges apparent sentiment in the court judgment.
+    Green means positive, red means negative, and grey means neutral.
+</div>
 
 <div id="search">
     <h1>Search Casebase:</h1>
@@ -68,7 +89,7 @@
             <option value="2017">2017</option>
             <option value="2016">2016</option>
         </select>
-        <button onclick="highlight()">Sentiment</button>
+        <button onclick="highlight()" id = 'sentiment'>Sentiment</button>
         <span>Occupation:</span>
         <select id = 'salary' onChange = 'filter()'>
             <option value="0">All</option>

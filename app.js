@@ -2,6 +2,20 @@
 const db = firebase.firestore();
 const table = document.querySelector('#resultstable');
 
+const tooltip = document.querySelector('#tooltip');
+const sentiment = document.querySelector('#sentiment');
+
+sentiment.addEventListener('mouseover', e => {
+    rect = sentiment.getBoundingClientRect()
+    tooltip.style.left = rect.right + 10;
+    tooltip.style.top = rect.top;
+    tooltip.style.display = '';
+})
+
+sentiment.addEventListener('mouseout', e => {
+    tooltip.style.display = 'none';
+})
+
 
 
 //need to do some weird stuff to get the year at the start of the date for sorting purposes
@@ -23,10 +37,12 @@ const addCase = (casedata, id) => {
     table.innerHTML += html;
 }
 
+
+//Gets the data base, and adds each document one row at a time
+//Maybe connect this to the page load somehow, rather than just floating in the middle of nowhere
 db.collection('casebank').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         addCase(doc.data(), doc.id);
-
     });
 }).catch(err => {
     console.log(err);
@@ -136,9 +152,18 @@ function calculate(){
     } else {
         age = 48
     }
-    let percentage = Number(inputs[2].value)
+    let percentage = Number(inputs[5].value)
     let output = document.getElementById('awardamount');
-    output.innerHTML = '<span>Projected Compensation:</span> $' + String(salary * age * percentage/100).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    let medfees = Math.min(Number(inputs[4].value), 300);
+    let sickleave = Number(inputs[2].value);
+    let temp_salary = Number(inputs[3].value.replace(',', ''));
+
+    let incapacity_compensation = salary * age * percentage/100;
+    let medical_compensation = medfees * sickleave;
+    let periodical_compensation = 0.8*(salary - temp_salary) * (sickleave/30);
+    let total = Math.round(incapacity_compensation + medical_compensation + periodical_compensation);
+    console.log(incapacity_compensation, medical_compensation, periodical_compensation)
+    output.innerHTML = '<span>Projected Compensation:</span> $' + String(total).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
 function sort(n){
