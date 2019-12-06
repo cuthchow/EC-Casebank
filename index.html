@@ -20,16 +20,14 @@
     <div id="calcexplainer">
         <span>CALCULATOR</span>
         <p>This is the employee compensation calculator. Compensation is made up of three components</p>
-        <p><ol>
+        <ol>
             <li>Loss of Earning Capacity</li>
             <li>Periodical Payments</li>
             <li>Medical Fees</li>
-        </ol></p>
+        </ol>
         <p>Numbers provided by this calculator should be taken as rough estimates. </p>
-        <p></p><p></p>
     </div>
     <div id="calcinputgroup">
-        <br>
         <table id = 'calculatortable'>
             <tr>
                 <td>Monthly Salary (Pre-Accident):</td>
@@ -88,8 +86,7 @@
             <option value="2018">2018</option>
             <option value="2017">2017</option>
             <option value="2016">2016</option>
-        </select>
-        <button onclick="highlight()" id = 'sentiment'>Sentiment</button>
+        </select><br/>
         <span>Occupation:</span>
         <select id = 'salary' onChange = 'filter()'>
             <option value="0">All</option>
@@ -105,7 +102,8 @@
             <option value="2019">30-45</option>
             <option value="2018">45-60</option>
             <option value="2017">60+</option>
-        </select>
+        </select><br/><br/>
+        <button onclick="highlight()" id = 'sentiment'>Sentiment</button>
     </div>
         
 </div>
