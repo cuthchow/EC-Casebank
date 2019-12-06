@@ -1,6 +1,6 @@
 
 const db = firebase.firestore();
-const table = document.querySelector('#resultstable');
+const table = document.querySelector('#resultstable tbody');
 
 const tooltip = document.querySelector('#tooltip');
 const sentiment = document.querySelector('#sentiment');
@@ -20,7 +20,6 @@ sentiment.addEventListener('mouseover', e => {
 sentiment.addEventListener('mouseout', e => {
     tooltip.style.display = 'none';
 })
-
 
 
 

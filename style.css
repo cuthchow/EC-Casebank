@@ -89,6 +89,7 @@ h2 {
     left: 4%;
     width: 90%;
     padding: 20px;
+    padding-top: 0px;
     border: 0px solid white;
     border-radius: 5px;
 }
@@ -365,13 +366,18 @@ img {
 
 @media (max-width: 1100px){
     button{
-        height: 80px;
-        font-size: 25px;
-        width: 300px;
+        height: 100px;
+        font-size: 40px;
+        width: 350px;
     }
 
     #searchbar {
-        height: 100px;
+        height: 150px;
+        font-size: 50px;
+    }
+
+    #search {
+        width: 90%;
     }
 
     #filter {
@@ -381,14 +387,16 @@ img {
 
     #filter select {
         width: 100%;
+        height: 130px;
+        font-size: 35px;
     }
 
     #filter span {
-        font-size: 22px;
+        font-size: 35px;
     }
 
     table, th {
-        font-size: 13px;
+        font-size: 28px;
     }
 
     select {
@@ -397,8 +405,21 @@ img {
         height: 55px;
     }
 
+    #dashboard {
+        display: none;
+    }
+
+    h1 {
+        font-size: 100px;
+    }
+
+    h2 {
+        display: none;
+    }
+
     #calctoggle {
-        font-size: 18px;
+        font-size: 25px;
+        width: 300px;
     }
 
     #calculator {
@@ -412,11 +433,12 @@ img {
         width: 100%;
         box-sizing: border-box;
         border-radius: 10px 10px 0px 0px;
-        height: 400px;
+        height: 80px;
+        font-size: 30px;
     }
 
     #calcexplainer span {
-        font-size: 50px;
+        font-size: 90px;
         margin-top: -60px;
     }
 
@@ -426,13 +448,44 @@ img {
         overflow-y: scroll;
     }
 
+    #calcexplainer p, #calcexplainer ol {
+        display: none;
+    }
+
     #tooltip {
         width: 300px;
         font-size: 17px;
     }
 
     #calculatortable {
-        font-size: 24px;
+        font-size: 35px;
     }
-}
 
+    #calcinputgroup button {
+        height: 200px;
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    #results {
+        overflow: scroll;
+        height: 900px;
+        padding: 0px;
+    }
+
+    th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: rgba(128, 128, 128, 0.541);
+    }
+
+    #resultstable {
+        table-layout: fixed;
+    }
+
+    #resultstable th, #resultstable td {
+        width: 300px;
+    }
+
+}
