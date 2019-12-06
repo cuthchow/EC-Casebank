@@ -32,7 +32,7 @@
         <br>
         <table id = 'calculatortable'>
             <tr>
-                <td>Monthly Salary (Pre-injury):</td>
+                <td>Monthly Salary (Pre-Accident):</td>
                 <td><input type="text" class = 'calcinput'></input> $</td>
             </tr>
             <tr>
@@ -44,7 +44,7 @@
                 <td><input type="text" class = 'calcinput'></input> Days</td>
             </tr>
             <tr>
-                <td>Monthly Salary during Incapacity </td>
+                <td>Monthly Salary (After Accident) </td>
                 <td><input type="text" class = 'calcinput'></input> $</td>
             </tr>
             <tr>
@@ -69,9 +69,9 @@
 </div>
 
 <div id="search">
-    <h1>Search Casebase:</h1>
+    <h1>Search Cases:</h1>
     <input id="searchbar" type = 'text' onkeyup = "myFunction()" placeholder = "Search injury... ">
-
+    <br><br>
     <div id="filter">
         <span>Salary:</span>
         <select id = 'salary' onChange = 'filtersalary()'>
@@ -110,9 +110,8 @@
         
 </div>
 <br>
-<hr>
 <br>
-<div id="results">
+<div id="results" style = 'display: none'>
     <table id='resultstable'>
         <tr>
             <th onclick = 'sort(0)'>Citation</th>
@@ -130,7 +129,7 @@
 
 <img src = 'https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/0053540d59ee4824b70187bce47ef0e4/1551236725_Drawing-a-bar-graph-to-represent-the-data.png'>
 
-<div id="dashboard">    
+<div id="dashboard" style = 'display: none'>    
     <h1 id = 'dashtitle'>Summary Dashboard</h1><br>
     <div class="graph" id="graph1"></div>
     <div class="graph" id="graph2"></div>
