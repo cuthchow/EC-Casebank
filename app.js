@@ -8,6 +8,8 @@ const sentiment = document.querySelector('#sentiment');
 const results = document.querySelector('#results');
 const dashboard = document.querySelector('#dashboard');
 
+const body = document.querySelector('body');
+
 let fetchstatus = false;
 
 sentiment.addEventListener('mouseover', e => {
@@ -30,6 +32,7 @@ function paginate(){
 }
 
 
+body.style.background = gradient_generator();
 
 
 //need to do some weird stuff to get the year at the start of the date for sorting purposes
@@ -157,6 +160,23 @@ function highlight(){
     }
 }
 
+function gradient_generator(){
+    //Random background gradient colour generator
+    function gen_color(){
+        let r = Math.min(Math.round(Math.random()*255), 200);
+        let g = Math.min(Math.round(Math.random()*255), 200);
+        let b = Math.min(Math.round(Math.random()*255), 200);
+        return `rgba(${r},${g},${b},1)`
+    }
+
+    function gen_angle(){
+        return String(Math.round(Math.random()*360));
+    }
+
+    return `linear-gradient(${gen_angle()}deg, ${gen_color()} 0%, ${gen_color()} 70%, ${gen_color()} 100%)`;
+}
+
+
 function calculator(){
     let calc = document.getElementById('calculator');
     let shield = document.getElementById('shield');
@@ -169,20 +189,8 @@ function calculator(){
         shield.style.display = 'none'
     }
 
-
-    //Random background gradient colour generator
-    function genrand(){
-        let r = Math.min(Math.round(Math.random()*255), 140);
-        let g = Math.min(Math.round(Math.random()*255), 140);
-        let b = Math.min(Math.round(Math.random()*255), 140);
-        return `rgba(${r},${g},${b},1)`
-    }
-    
-    let gradient = `linear-gradient(132deg, ${genrand()} 0%, ${genrand()} 100%, ${genrand()} 100%)`;
-    explainer.style.background = gradient;
+    explainer.style.background = gradient_generator();
 }
-
-
 
 
 function calculate(){
