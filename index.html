@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src = 'https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src = 'paginator.js'></script>
 </head>
 
 <body>
@@ -62,7 +63,7 @@
 </div>
     
 <div id="tooltip" style = 'display: none'>
-    Click on the sentiment button to highlight the cases based on the judges apparent sentiment in the court judgment.
+    Click on the sentiment button to highlight the cases based on the judges perception towards the credibility of the injured person.
     Green means positive, red means negative, and grey means neutral.
 </div>
 
@@ -128,6 +129,7 @@
         </tbody>
         
     </table>
+    <div id = 'pageSelector'></div>
 </div>
 
 <img src = 'https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/0053540d59ee4824b70187bce47ef0e4/1551236725_Drawing-a-bar-graph-to-represent-the-data.png'>

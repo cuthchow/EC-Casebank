@@ -21,15 +21,26 @@ sentiment.addEventListener('mouseout', e => {
     tooltip.style.display = 'none';
 })
 
+function paginate(){
+    paginator({
+        table: document.getElementById('resultstable'), 
+        box: document.getElementById('pageSelector'),
+        rows_per_page: 10
+    });
+}
+
+
 
 
 //need to do some weird stuff to get the year at the start of the date for sorting purposes
 //Find a more elegant way of solving this 
 const addCase = (casedata, id) => {
+    let case_string = casedata.casename.replace(' ', '+');
+    let case_link = `https://www.hklii.hk/cgi-bin/sinosrch.cgi?query=${case_string}&results=50&submit=Search&mask_world=&mask_path=&callback=on&method=auto&meta=%2Fhklii`
     date = casedata.date.substr(-4,) + '/' + casedata.date.substr(0,casedata.date.length-5)
     let html = `
     <tr>
-        <td><a href = '#'>${casedata.citation}</a></td>
+        <td><a href = ${case_link}>${casedata.citation}</a></td>
         <td>${casedata.percentage}</td>
         <td>${casedata.location}</td>
         <td>${casedata.age}</td>
@@ -54,6 +65,8 @@ function fetchCases(){
             snapshot.docs.forEach(doc => {
                 addCase(doc.data(), doc.id);
             });
+        paginate();
+            
         }).catch(err => {
             console.log(err);
         });
