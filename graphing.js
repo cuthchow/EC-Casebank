@@ -31,7 +31,7 @@ let trace2 = {
 }
 
 let layout = {
-    title: {text: 'Employee Compensation', font: {size: 25}},
+    title: {text: 'Employee Compensation', font: {size: 25, color: 'white'}},
     showLegend: false,
     xaxis: {
         title: {text: 'Age at Incident'}
@@ -39,7 +39,9 @@ let layout = {
     yaxis: {
         title: {text: '% Loss Awarded'}
     },
-    legend: {borderwidth: 0, orientation: 'h'}
+    legend: {borderwidth: 0, orientation: 'h'},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)'
 }
 
 data = [trace, trace2];
@@ -105,9 +107,11 @@ var layout2 = {
   bargap: 0.05, 
   bargroupgap: 0.2, 
   barmode: "overlay", 
-  title: {text: "Assessed %", font: {size: 25}}, 
+  title: {text: "Assessed %", font: {size: 25, color :'white'}}, 
   xaxis: {title: "Percentage"}, 
   autosize: true, 
-  legend: {orientation: 'h', y: -0.2}
+  legend: {orientation: 'h', y: -0.2},
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)'
 };
 Plotly.newPlot(graph1, data2, layout2);

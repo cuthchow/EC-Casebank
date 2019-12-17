@@ -6,9 +6,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src = 'https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script src = 'paginator.js'></script>
+
+    <title>
+        EC Casebank
+    </title>
 </head>
 
 <body>
+
+<div class="disclaimer">
+    <div class="disclaimer-text">
+        <strong>Disclaimer</strong>: While we make every effort to ensure the accuracy of information provided in the EC Casebank,
+         we do not take responsibility for any inaccuracies or errors. Nothing on this website should be taken as 
+         legal advice, and we encourage all users to verify the accuracy of important information on their own account.
+    </div><br/><br/>
+    <button onclick = 'closeDisclaimer()'>Accept</button>
+</div>
 
 <div id="shield" onclick = 'calculator()' style = 'display: none'></div>
 
@@ -72,6 +85,37 @@
     <input id="searchbar" type = 'text' onkeyup = "myFunction()" placeholder = "Search injury... ">
     <br><br>
     <div id="filter">
+
+        <span>Body Part</span>
+        <select id = 'bodypart' onChange = 'filterbodypart()'>
+            <option value="All">All</option>
+            <option value="Head">Head</option>
+            <option value="Eye">Eye</option>
+            <option value="Ear">Ear</option>
+            <option value="Nose">Nose</option>
+            <option value="Mouth">Mouth</option>
+            <option value="Neck">Neck</option>
+            <option value="Shoulder">Shoulder</option>
+            <option value="Breast">Breast</option>
+            <option value="Abdomen">Abdomen</option>
+            <option value="Upper Extremity">Upper Extremity</option>
+            <option value="Wrist">Wrist</option>
+            <option value="Hand">Hand</option>
+            <option value="Hip">Hip</option>
+            <option value="Back">Back</option>
+            <option value="Waist">Waist</option>
+            <option value="Lower Extremity">Lower Extremity</option>
+            <option value="Knee">Knee</option>
+            <option value="Foot">Foot</option>
+            <option value="Arm">Arm</option>
+            <option value="Forearm">Forearm</option>
+            <option value="Elbow">Elbow</option>
+            <option value="Buttock">Buttock</option>
+            <option value="Thigh">Thigh</option>
+            <option value="Leg">Leg</option>
+            <option value="Toe">Toe</option>
+        </select>
+
         <span>Salary:</span>
         <select id = 'salary' onChange = 'filtersalary()'>
             <option value="0">All</option>
@@ -79,7 +123,7 @@
             <option value="20000">$20,000-$30,000</option>
             <option value="30000">$30,000-$40,000</option>
             <option value="40000">$40,000-$50,000</option>
-        </select>
+        </select><br/>
         <span>Year:</span>
         <select id = 'year' onChange = 'filteryear()'>
             <option value="0">All</option>
@@ -87,23 +131,24 @@
             <option value="2018">2018</option>
             <option value="2017">2017</option>
             <option value="2016">2016</option>
-        </select><br/>
+        </select>
         <span>Occupation:</span>
-        <select id = 'salary' onChange = 'filter()'>
+        <select id = 'occupation' onChange = ''>
             <option value="0">All</option>
             <option value="10000">Construction Worker</option>
             <option value="20000">Service Employee</option>
             <option value="30000">Factory Worker</option>
             <option value="40000">Carpenter</option>
-        </select>
-        <span>Age:</span>
-        <select id = 'year' onChange = 'filter()'>
+        </select><br/>
+        <!-- <span>Age:</span>
+        <select id = 'age'>
             <option value="0">All</option>
             <option value="0">15-30</option>
             <option value="2019">30-45</option>
             <option value="2018">45-60</option>
             <option value="2017">60+</option>
-        </select><br/><br/>
+        </select><br/><br/> -->
+        <br/><br/>
         <button onclick="highlight()" id = 'sentiment'>Sentiment</button>
     </div>
         

@@ -8,6 +8,7 @@ html {
 
 body {
     overflow-x: hidden;
+    background-color: black;
     /* background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
 }
 
@@ -26,6 +27,10 @@ body {
     top: -5%;
     font-family: 'Montserrat', sans-serif;
     transition-duration: 0.5s;
+}
+
+#searchbar:focus {
+    outline: none;
 }
 
 #search {
@@ -124,9 +129,7 @@ td {
     padding: 14px;
 }
 
-#searchbar:focus {
-    outline: none;
-}
+
 
 .filter {
     position: relative;
@@ -346,9 +349,9 @@ img {
 }
 
 .graph {
-    background-color: white;
+    background-color: rgba(0,0,0,0);
     height: 550px;
-    width: 800px;
+    width: 700px;
 }
 
 #dashtitle {
@@ -386,11 +389,38 @@ img {
     background-size: 200% 100%;
     box-shadow: none;
     border: 1px solid black;
-
     color: black;
 }
 
-@media (max-width: 1100px){
+.disclaimer {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.808);
+}
+
+.disclaimer button {
+    margin-left: 40%;
+    width: 20%;
+    height: 50px;
+    font-size: 1.3rem;
+    border: 3px solid white;
+}
+
+.disclaimer-text {
+    color: white;
+    margin-top: 100px;
+    margin-left: 30%;
+    width: 40%;
+    line-height: 2em;
+    font-size: 24px;
+}
+
+
+@media (max-width: 800px){
     button{
         height: 100px;
         font-size: 40px;

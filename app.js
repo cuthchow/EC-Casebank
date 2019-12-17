@@ -1,4 +1,3 @@
-
 const db = firebase.firestore();
 const table = document.querySelector('#resultstable tbody');
 
@@ -11,6 +10,10 @@ const dashboard = document.querySelector('#dashboard');
 const body = document.querySelector('body');
 
 let fetchstatus = false;
+let calcstatus = false;
+
+
+// document.addEventListener()
 
 sentiment.addEventListener('mouseover', e => {
     rect = sentiment.getBoundingClientRect()
@@ -31,8 +34,15 @@ function paginate(){
     });
 }
 
+document.addEventListener('keypress', e => {
+    if (e.code == 'Escape' && calcstatus == true){
+        calculator();
+    }
+})
 
-body.style.background = gradient_generator();
+let current_style = gradient_generator();
+body.style.background = current_style;
+console.log(current_style);
 
 
 //need to do some weird stuff to get the year at the start of the date for sorting purposes
@@ -75,6 +85,70 @@ function fetchCases(){
         });
     };
 }
+
+function closeDisclaimer(){
+    let disclaimer = document.querySelector('.disclaimer');
+    disclaimer.style.display = 'none';
+}
+
+
+let injury_cats = {'Head': ['nan','DCEC 2580/2017','DCEC 1847/2016','DCEC 1412/2016','DCEC 369/2015'],
+'Eye': ['DCEC 1567/2018','nan','DCEC 1752/2016','DCEC 1412/2016','DCEC 1021/2015'],
+'Ear': ['nan', 'nan', 'nan', 'nan'],
+'Nose': ['nan', 'nan', 'nan', 'nan'],
+'Mouth': ['nan', 'DCEC 235/2017', 'DCEC 1254/2016', 'nan'],
+'Neck': ['nan', 'nan', 'DCEC 2706/2016', 'DCEC 324/2015'],
+'Shoulder': ['nan', 'DCEC 182/2017', 'nan', 'nan'],
+'Breast': ['nan', 'nan', 'DCEC 2208/2016', 'nan'],
+'Abdomen': ['nan', 'nan', 'nan', 'nan'],
+'Upper Extremity': ['nan', 'nan', 'nan', 'nan'],
+'Wrist': ['DCEC 1246/2018','DCEC 182/2017','DCEC 1600/2017','DCEC 2237/2016','DCEC 1125/2016','DCEC 1254/2016','DCEC 1847/2016','DCEC 670/2016','DCEC 2123/2015','DCEC 1940/2015'],
+'Hand': ['DCEC 1246/2018','DCEC 2611/2017','DCEC 802/2016','DCEC 688/2016','DCEC 804/2016','DCEC 1125/2016','DCEC 1411/2016','DCEC 1872/2016','DCEC 2250/2016','DCEC 369/2015','DCEC 111/2015'],
+'Hip': ['nan', 'DCEC 182/2017', 'nan', 'DCEC 1787/2015'],
+'Back': ['nan','DCEC 235/2017','DCEC 695/ 2017','DCEC 2691/2016','DCEC 1680/2016','DCEC 2745/2016','DCEC 2332/2015','DCEC 1787/2015'],
+'Waist': ['nan', 'nan', 'DCEC 552/2016', 'DCEC 2706/2016', 'nan'],
+'Lower Extremity': ['nan', 'nan', 'DCEC 552/2016', 'nan'],
+'Knee': ['DCEC 1331/2018','DCEC 305/2017','DCEC 552/2016','DCEC 1787/2015'],
+'Foot': ['DCEC 1331/2018','DCEC 7/2017','DCEC 843/2017','DCEC 1141/2017','DCEC 1680/2016','DCEC 1801/2016','nan'],
+'Arm': ['DCEC 1331/2018', 'nan', 'nan', 'nan'],
+'Forearm': ['nan', 'nan', 'nan', 'nan'],
+'Elbow': ['nan', 'DCEC 182/2017', 'DCEC 1684/2016', 'nan'],
+'Buttock': ['nan', 'nan', 'nan', 'nan'],
+'Thigh': ['DCEC 1962/2018', 'nan', 'nan', 'nan'],
+'Ham': ['nan', 'nan', 'nan', 'nan'],
+'Leg': ['nan', 'DCEC 695/ 2017; DCEC 1899/2017', 'nan', 'nan'],
+'Toe': ['nan', 'nan', 'DCEC 1060/2016', 'DCEC 1108/2015']}
+
+
+function filterbodypart(){
+    fetchCases()
+    let table = document.getElementById('resultstable');
+    let tr = table.getElementsByTagName('tr');
+    let input = document.getElementById('bodypart');
+    let filter = input.value;
+
+    for (i = 1; i < tr.length; i++){
+        let td = tr[i].getElementsByTagName('td')[0].textContent;
+        let status = false;
+
+        if (filter === 'All'){
+            status = true;
+            paginate();
+        } else {
+            injury_cats[filter].forEach(x => {
+            if (td.includes(x)) {
+                status = true; 
+                return;
+            }
+        })}
+        if (status){
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        } 
+    }
+}
+
 
 function myFunction() {
     fetchCases();
@@ -143,7 +217,6 @@ function filteryear(){
             tr[i].style.display = "none"
         }
     }
-
 }
 
 function highlight(){
@@ -173,7 +246,9 @@ function gradient_generator(){
         return String(Math.round(Math.random()*360));
     }
 
-    return `linear-gradient(${gen_angle()}deg, ${gen_color()} 0%, ${gen_color()} 70%, ${gen_color()} 100%)`;
+    let grad = `linear-gradient(${gen_angle()}deg, ${gen_color()} 0%, ${gen_color()} 100%)`;
+    console.log(grad);
+    return grad
 }
 
 
@@ -184,12 +259,14 @@ function calculator(){
     if (calc.style.display == "none") {
         calc.style.display = ''
         shield.style.display = ''
+        calcstatus = true;
     } else {
         calc.style.display = 'none'
         shield.style.display = 'none'
+        calcstatus = false;
     }
 
-    explainer.style.background = gradient_generator();
+    explainer.style.background = current_style;
 }
 
 
