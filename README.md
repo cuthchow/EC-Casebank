@@ -4,7 +4,7 @@ EC Bank is an online case repository. By keyword-matching according to your comm
 
 ---
 
-## To find "Percentage Loss of Earning Capacity" of similar cases:
+### To find "Percentage Loss of Earning Capacity" of similar cases:
 1. Step 1: Type your injury (e.g. fracture or sprain) in the search bar. 
 2. Step 2: Limit the search results by various criteria, including injured body part, salary, occupation and year of case.
 3. Step 3: "Percentage Loss of Earning Capacity" and other information of relevant cases can be viewed from the table. Graphs are also provided at the bottom to illustrate the trend of compensation in recent years.
@@ -12,7 +12,7 @@ EC Bank is an online case repository. By keyword-matching according to your comm
 
 
 
-## To calculate the expected employee compensation:
+### To calculate the expected employee compensation:
 1. Step 1: Click on the calculator button at the top-right corner. 
 2. Step 2: Input the data as required.
 3. Step 3: A predicted figure of compensation is calculated according to the statutory formula.
