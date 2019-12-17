@@ -28,6 +28,27 @@
 <div id="header">
     <h2>EC CASEBANK</h2>
     <button onclick="calculator()" id = 'calctoggle'>Calculator  <i class="fa fa-calculator" aria-hidden="true"></i></button>
+    <button onclick="helpbox()" id = 'helptoggle'>Help </button>
+</div>
+
+<div id="helpbox" class = 'visibility'>
+    EC Bank is an online case repository. By keyword-matching according to your command in our database, the engine provides you information of relevant Employment Compensation (EC) and Personal Injury (PI) cases, which are neatly presented in table form.
+    <br/><hr>
+    <strong>To find "Percentage Loss of Earning Capacity" of similar cases:</strong>
+    <br/><br/>
+    <ol>
+        <li>Type your injury (e.g. fracture or sprain) in the search bar.</li>
+        <li>Limit the search results by various criteria, including injured body part, salary, occupation and year of case.</li>
+        <li>"Percentage Loss of Earning Capacity" and other information of relevant cases can be viewed from the table. Graphs are also provided at the bottom to illustrate the trend of compensation in recent years.</li>
+        <li>Click on the sentiment button to colour the search results based on judges' perception towards the credibility of the injured worker. Green means positive, red means negative and grey means neutral.</li>
+    </ol>
+    <br/>
+    <strong>To calculate the expected employee compensation:</strong>
+    <ol>
+        <li>Click on the calculator button at the top-right corner</li>
+        <li>Input the data as required</li>
+        <li>A predicted figure of compensation is calculated according to the statutory formula.</li>
+    </ol>
 </div>
 
 <div id = 'calculator' style = "display: none">
@@ -165,8 +186,9 @@
                 <th onclick = 'sort(3)'>Age at Incident</th>
                 <th>Length of Sick Leave</th>
                 <th onclick = 'sort(5)'>Date of Assessment</th>
-                <th>Monthly Salary</th>
+                <th onclick = 'sort(6)'>Monthly Salary</th>
                 <th>Sentiment</th>
+                <th onclick = 'sort(8)'>Occupation</th>
             </tr>
         </thead>
         <tbody>

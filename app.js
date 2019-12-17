@@ -8,9 +8,13 @@ const results = document.querySelector('#results');
 const dashboard = document.querySelector('#dashboard');
 
 const body = document.querySelector('body');
+const searchfields = document.querySelector('#search')
+
+const helptoggle = document.querySelector('#helptoggle');
 
 let fetchstatus = false;
 let calcstatus = false;
+let helpstatus = false;
 
 
 // document.addEventListener()
@@ -61,8 +65,10 @@ const addCase = (casedata, id) => {
         <td>${date}</td>
         <td>${casedata.salary}</td>
         <td>${casedata.sentiment}</td>
+        <td>${casedata.occuption}</td>
     </tr>
     `
+
     table.innerHTML += html;
 }
 
@@ -251,6 +257,20 @@ function gradient_generator(){
     return grad
 }
 
+function helpbox(){
+    let helpbox = document.getElementById('helpbox');
+    helpbox.classList.toggle('visibility');
+    if (helpstatus == false){
+        searchfields.style.margin = '0 150px';
+        helpstatus = true;
+        helptoggle.classList.toggle('activebutton');
+    } else {
+        searchfields.style.margin = '0 auto';
+        helptoggle.classList.toggle('activebutton');
+        helpstatus = false;
+    }
+   
+}
 
 function calculator(){
     let calc = document.getElementById('calculator');
