@@ -2,13 +2,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap');
         </style>
+    <link rel="shortcut icon" type = 'image/png' href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src = 'https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script src = 'paginator.js'></script>
 
     <title>
-        EC Casebank
+        EC Casebank 
     </title>
 </head>
 
@@ -27,7 +28,7 @@
 
 <div id="header">
     <h2>EC CASEBANK</h2>
-    <button onclick="calculator()" id = 'calctoggle'>Calculator  <i class="fa fa-calculator" aria-hidden="true"></i></button>
+    <button onclick="calculator()" id = 'calctoggle'>Estimator  <i class="fa fa-calculator" aria-hidden="true"></i></button>
     <button onclick="helpbox()" id = 'helptoggle'>Help </button>
 </div>
 
@@ -53,14 +54,14 @@
 
 <div id = 'calculator' style = "display: none">
     <div id="calcexplainer">
-        <span>CALCULATOR</span>
-        <p>This is the employee compensation calculator. Compensation is made up of three components</p>
+        <span>ESTIMATOR</span>
+        <p>This is the employee compensation estimator. Compensation is made up of three components</p>
         <ol>
             <li>Loss of Earning Capacity</li>
             <li>Periodical Payments</li>
             <li>Medical Fees</li>
         </ol>
-        <p>Numbers provided by this calculator should be taken as rough estimates. </p>
+        <p>Numbers provided by this estimator should be taken as rough approximations. </p>
     </div>
     <div id="calcinputgroup">
         <table id = 'calculatortable'>
@@ -89,7 +90,7 @@
                 <td><input type="text" class = 'calcinput'></input> %</td>
             </tr>
         </table><br><br>
-        <button onclick="calculate()">Calculate</button>
+        <button onclick="calculate()">Estimate</button>
         <h3 id = 'awardamount'></h3><br>
     </div>
     
@@ -102,6 +103,7 @@
 </div>
 
 <div id="search">
+
     <h1>Search Cases:</h1>
     <input id="searchbar" type = 'text' onkeyup = "myFunction()" placeholder = "Search injury... ">
     <br><br>
@@ -199,7 +201,6 @@
     <div id = 'pageSelector'></div>
 </div>
 
-<img src = 'https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/0053540d59ee4824b70187bce47ef0e4/1551236725_Drawing-a-bar-graph-to-represent-the-data.png'>
 
 <div id="dashboard" style = 'display: none'>    
     <h1 id = 'dashtitle'>Summary Dashboard</h1><br>
